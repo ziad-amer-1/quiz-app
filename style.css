@@ -1,0 +1,121 @@
+*, 
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(to right, #eb4592 0%, #eb4592, 50%, #44c5e4 50%);
+  overflow: hidden;
+}
+.btn-grid.noTouch {
+  pointer-events: none;
+}
+.container {
+  width: 800px;
+  max-width: 75%;
+  background: rgba(255, 255, 255, 0.434);
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+}
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin-block: 20px;
+}
+#question {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.btn {
+  --hue: var(--hue-neutral);
+  background-color: hsl(var(--hue), 100%, 50%);
+  border: 1px solid hsl(var(--hue), 100%, 30%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  outline: none;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.answer-btn {
+  font-size: 1.2rem;
+  background-color: hsl(var(--hue ), 100%, 35%);
+}
+.btn:hover {
+  border-color: black;
+}
+.btn:active {
+  transform: scale(1.1);
+}
+.btn.correct {
+  --hue: var(--hue-correct);
+  color: black;
+}
+.btn.wrong {
+  --hue: var(--hue-wrong)
+}
+.start-btn,
+.next-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 7px 15px;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hide {
+  display: none;
+}
+.score {
+  position: relative;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
+.score > * {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 0 15px;
+}
+.score > *:first-child {
+  text-align: right;
+  border-right: 5px solid
+}
+@media screen and (max-width: 600px) {
+  .btn-grid {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+  .btn-grid > * {
+    padding: 10px;
+  }
+  .btn-grid > *:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
